@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Thank you 4L🤍</title>
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff9ad5, #ffd1f2);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-align: center;
+    overflow: hidden;
+}
+
+.container {
+    margin-top: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+.header_text {
+    font-size: 2.3rem;
+    color: white;
+    text-shadow: 2px 2px 8px #ff1493;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.gif_container {
+    width: 260px;
+    margin: 25px auto;
+}
+
+.tenor-gif-embed {
+    width: 100% !important;
+}
+
+.heart {
+    position: absolute;
+    bottom: -20px;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-110vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1 class="header_text">
+        I know you will say yes : p <br>
+        Thank you soo much my love!!!
+    </h1>
+
+    <div class="gif_container">
+        <div class="tenor-gif-embed"
+             data-postid="20570394"
+             data-share-method="host"
+             data-aspect-ratio="1"
+             data-width="100%">
+        </div>
+    </div>
+</div>
+
+<script async src="https://tenor.com/embed.js"></script>
+
+<script>
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+    document.body.appendChild(heart);
+
+    setTimeout(() => heart.remove(), 6000);
+}
+setInterval(createHeart, 500);
+</script>
+
+</body>
+</html>

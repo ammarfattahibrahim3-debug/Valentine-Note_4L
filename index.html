@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Will You Be My Valentine?</title>
+<link rel="stylesheet" href="./styles.css">
+
+<style>
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #ff9ad5, #ffd1f2);
+    font-family: 'Comic Sans MS', cursive, sans-serif;
+    text-align: center;
+    overflow: hidden;
+}
+
+.container {
+    margin-top: 60px;
+    position: relative;
+    z-index: 2;
+}
+
+h1 {
+    font-size: 2.3rem;
+    color: white;
+    text-shadow: 2px 2px 8px #ff1493;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%,100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+.buttons {
+    margin-top: 25px;
+}
+
+button {
+    padding: 12px 25px;
+    margin: 10px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 20px;
+    cursor: pointer;
+    background-color: white;
+    color: #ff1493;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: scale(1.1);
+}
+
+.gif_container {
+    width: 250px;
+    margin: 20px auto;
+}
+
+.tenor-gif-embed {
+    width: 100% !important;
+}
+
+/* Floating hearts */
+.heart {
+    position: absolute;
+    bottom: -20px;
+    font-size: 20px;
+    animation: floatUp 6s linear infinite;
+}
+
+@keyframes floatUp {
+    from { transform: translateY(0); opacity: 1; }
+    to { transform: translateY(-110vh); opacity: 0; }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+    <h1>Will you be my Valentine?</h1>
+
+    <div class="gif_container">
+        <div id="mainGif"
+             class="tenor-gif-embed"
+             data-postid="3964424148548375014"
+             data-share-method="host"
+             data-aspect-ratio="1"
+             data-width="100%">
+        </div>
+    </div>
+
+    <div class="buttons">
+        <button class="yes-button" onclick="handleYesClick()">Yes</button>
+        <button class="no-button" onclick="handleNoClick()">No</button>
+    </div>
+</div>
+
+<script async src="https://tenor.com/embed.js"></script>
+<script src="./script.js"></script>
+
+<script>
+/* Floating Hearts */
+function createHeart() {
+    const heart = document.createElement("div");
+    heart.classList.add("heart");
+    heart.innerHTML = "💖";
+    heart.style.left = Math.random() * 100 + "vw";
+    heart.style.animationDuration = (4 + Math.random() * 3) + "s";
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), 6000);
+}
+setInterval(createHeart, 500);
+
+/* Mobile-safe 8-click GIF switch */
+document.addEventListener("DOMContentLoaded", function() {
+
+    let noClickCount = 0;
+
+    if (typeof window.handleNoClick === "function") {
+
+        const originalHandleNoClick = window.handleNoClick;
+
+        window.handleNoClick = function() {
+
+            noClickCount++;
+
+            // Run your original no-button logic
+            originalHandleNoClick();
+
+            if (noClickCount === 8) {
+                const gif = document.getElementById("mainGif");
+
+                gif.setAttribute("data-postid", "16524902");
+                gif.innerHTML = "";
+
+                if (window.TenorEmbed) {
+                    window.TenorEmbed.init();
+                }
+            }
+        };
+    }
+});
+</script>
+
+</body>
+</html>
