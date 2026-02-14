@@ -54,16 +54,16 @@
 })();
 */
 const messages = [
-    "Are you sure?",
-    "Really sure??",
-    "Are you positive?",
-    "Pookie please...",
-    "Just think about it!",
-    "If you say no, I will be really sad...",
-    "I will be very sad...",
-    "I will be very very very sad...",
-    "Ok fine, I will stop asking...",
-    "Just kidding, say yes please! ❤️"
+    "Kamu yakin??",
+    "Gitu yaa sekarang??",
+    "Semua orang berubah ubah??",
+    "Pookie please 🥺",
+    "Pleasew say yez 😡 ",
+    "Sedih nih gwah",
+    "1 langkah lagiw buat sw nihj",
+    "YAudahjw bebaz deh yes or nouw",
+    "PLeasewz yesj ajahw, begginhw bet",
+    "Wajibz, yes sihjw kata gwahj 😡🥺"
 ];
 
 let messageIndex = 0;
